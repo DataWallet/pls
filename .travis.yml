@@ -1,0 +1,13 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+  - '10'
+cache: yarn
+branches:
+  only:
+    - master
+install:
+  - yarn
+script:
+  - yarn run test
