@@ -1,0 +1,7 @@
+{
+  "name": "satellite-sdk",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "github.com:DataWallet/satellite-sdk.git",
+  "license": "MIT"
+}
