@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cat $HUSKY_GIT_PARAMS | node -r esm scripts/check-commit-msg.js $HUSKY_GIT_PARAMS;
