@@ -1,7 +1,5 @@
-import git from 'simple-git/promise';
 import chalk from 'chalk';
 import {sync as parseCommit} from 'conventional-commits-parser';
-import {join} from 'path';
 
 const stdin = process.openStdin();
 
@@ -45,17 +43,9 @@ function verifyHeaderParts({type}) {
   }
 }
 
-async function main(commitMsg, commitFilePath) {
-  const withoutScopePattern = /^(\w*)(?:\(.+\))?: (.*)$/;
-  let [firstLine, ...lines] = commitMsg.split('\n');
+async function main(commitMsg) {
   let fullMessage = commitMsg;
-
-  // Get header commit pattern from @semantic-release config file
-  const releaseConfig = require('../release.config');
-  const [, {parserOpts}] = releaseConfig.plugins.find(
-    ([name]) => name === '@semantic-release/commit-analyzer',
-  );
-  const commit = parseCommit(fullMessage, parserOpts);
+  const commit = parseCommit(fullMessage);
 
   if (commit.type) {
     // If the commit message types and scopes are acceptable
