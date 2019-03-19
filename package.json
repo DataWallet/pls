@@ -1,5 +1,5 @@
 {
-  "name": "satellite-sdk",
+  "name": "@datawallet/satellite-sdk",
   "version": "0.0.1",
   "main": "",
   "repository": "https://github.com/DataWallet/satellite-sdk",
