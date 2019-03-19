@@ -7,9 +7,9 @@
   "scripts": {
     "build": "tsc",
     "test": "jest --config jest.config.js",
-    "test--watch": "jest --watch",
+    "test:watch": "jest --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json"
+    "lint": "tslint -p tslint-tsconfig.json"
   },
   "husky": {
     "hooks": {
@@ -19,7 +19,7 @@
   },
   "lint-staged": {
     "**/*.ts": [
-      "tslint -p tsconfig.json",
+      "yarn lint",
       "prettier --single-quote --write",
       "git add"
     ],
