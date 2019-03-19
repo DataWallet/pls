@@ -10,4 +10,5 @@ branches:
 install:
   - yarn
 script:
-  - yarn run test
+  - yarn lint
+  - yarn test
