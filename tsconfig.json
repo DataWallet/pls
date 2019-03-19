@@ -3,7 +3,7 @@
     "outDir": "./lib/",
     "sourceMap": true,
     "noImplicitAny": true,
-    "target": "esnext",
+    "target": "es5",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "strict": true
