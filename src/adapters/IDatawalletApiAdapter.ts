@@ -4,9 +4,25 @@ export interface ISignedQuery {
 }
 
 interface IDatawalletApiAdapter {
-  authorize(query: string): Promise<ISignedQuery>;
+  authorize(
+    query: string,
+    shortName: string,
+    avatarUrl?: string,
+    companyName?: string,
+    promoText?: string,
+    promoTextMore?: string,
+  ): Promise<ISignedQuery>;
+
   isAvailable(): boolean;
-  query(query: ISignedQuery): Promise<any>;
+
+  query(
+    query: ISignedQuery,
+    shortName: string,
+    avatarUrl?: string,
+    companyName?: string,
+    promoText?: string,
+    promoTextMore?: string,
+  ): Promise<any>;
 }
 
 export default IDatawalletApiAdapter;

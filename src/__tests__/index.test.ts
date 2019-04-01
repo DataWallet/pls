@@ -9,7 +9,7 @@ const plugin = ((window as any)[PLUGIN] = {
 
 describe('authorize', () => {
   it('calls the injected plugin api', () => {
-    expect(authorize('query')).toEqual({
+    expect(authorize('query', 'company short name')).toEqual({
       query: 'query',
       signature: 'signature',
     });
@@ -21,10 +21,13 @@ describe('authorize', () => {
 describe('query', () => {
   it('calls the injected plugin api', () => {
     expect(
-      query({
-        query: 'hi',
-        signature: 'signature',
-      }),
+      query(
+        {
+          query: 'hi',
+          signature: 'signature',
+        },
+        'company short name',
+      ),
     ).toEqual({
       hello: 'world',
     });
