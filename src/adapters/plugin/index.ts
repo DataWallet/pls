@@ -1,4 +1,7 @@
-import IDatawalletApiAdapter, {ISignedQuery} from '../IDatawalletApiAdapter';
+import IDatawalletApiAdapter, {
+  IDatawalletPluginAPIParams,
+  ISignedQuery,
+} from '../IDatawalletApiAdapter';
 import {ExtensionNotInstalledError} from './ExtensionNotInstalledError';
 
 const PLUGIN_ENTRY_POINT = 'datawallet';
@@ -11,17 +14,18 @@ const isPluginInjected = () => {
 };
 
 class DatawalletPluginApiAdapter implements IDatawalletApiAdapter {
-  public authorize(
-    query: string,
-    shortName: string,
-    avatarUrl?: string,
-    companyName?: string,
-    promoText?: string,
-    promoTextMore?: string,
-  ): Promise<ISignedQuery> {
+  public authorize(params: IDatawalletPluginAPIParams): Promise<ISignedQuery> {
     if (!this.isAvailable()) {
       throw new ExtensionNotInstalledError();
     }
+    const {
+      query,
+      shortName,
+      avatarUrl,
+      companyName,
+      promoText,
+      promoTextMore,
+    } = params;
     return (window as any)[PLUGIN_ENTRY_POINT].authorize(
       query,
       shortName,
@@ -36,14 +40,15 @@ class DatawalletPluginApiAdapter implements IDatawalletApiAdapter {
     return isPluginInjected();
   }
 
-  public query(
-    query: ISignedQuery,
-    shortName: string,
-    avatarUrl?: string,
-    companyName?: string,
-    promoText?: string,
-    promoTextMore?: string,
-  ): Promise<any> {
+  public query(params: IDatawalletPluginAPIParams): Promise<any> {
+    const {
+      query,
+      shortName,
+      avatarUrl,
+      companyName,
+      promoText,
+      promoTextMore,
+    } = params;
     return (window as any)[PLUGIN_ENTRY_POINT].query(
       query,
       shortName,
