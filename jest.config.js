@@ -1,4 +1,9 @@
 module.exports = {
+  "globals": {
+    "ts-jest": {
+      "diagnostics": false
+    }
+  },
   "roots": [
     "<rootDir>/src"
   ],
