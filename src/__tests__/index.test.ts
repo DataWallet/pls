@@ -1,10 +1,16 @@
-import {authorize, query} from '../index';
+import {authorize, isAvailable, query} from '../index';
 
 const PLUGIN = 'datawallet';
 
 const plugin = ((window as any)[PLUGIN] = {
   authorize: jest.fn(queryArg => ({query: queryArg, signature: 'signature'})),
   query: jest.fn(signedQuery => ({hello: 'world'})),
+});
+
+describe('isAvailable', () => {
+  it('checks if the plugin is present', () => {
+    expect(isAvailable()).toBe(true);
+  });
 });
 
 describe('authorize', () => {
