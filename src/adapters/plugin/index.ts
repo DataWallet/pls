@@ -1,3 +1,4 @@
+import {isAddress} from 'web3-utils';
 import IDatawalletApiAdapter, {
   AUTHORIZE_PARAMS_KEYS,
   IAuthorizeParams,
@@ -39,6 +40,15 @@ class DatawalletPluginApiAdapter implements IDatawalletApiAdapter {
 
     if (errorMessages.length > 0) {
       throw new Error(errorMessages.join(', '));
+    }
+
+    if ('contractAddress' in params) {
+      if (
+        typeof params.contractAddress !== 'string' ||
+        !isAddress(params.contractAddress)
+      ) {
+        throw new Error('`contractAddress` must be a valid Ethereum address');
+      }
     }
 
     // filter extraneous keys

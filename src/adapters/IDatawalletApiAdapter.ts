@@ -3,6 +3,7 @@ export interface IAuthorizeParams {
   shortName: string;
   avatarUrl: string;
   companyName?: string;
+  contractAddress?: string;
   promoText?: string;
   promoTextMore?: string;
 }
@@ -12,6 +13,7 @@ export const AUTHORIZE_PARAMS_KEYS: Array<keyof IAuthorizeParams> = [
   'shortName',
   'avatarUrl',
   'companyName',
+  'contractAddress',
   'promoText',
   'promoTextMore',
 ];
