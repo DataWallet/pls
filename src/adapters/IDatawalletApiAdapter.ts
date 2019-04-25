@@ -16,6 +16,7 @@ export const AUTHORIZE_PARAMS_KEYS: Array<keyof IAuthorizeParams> = [
   'contractAddress',
   'promoText',
   'promoTextMore',
+  'contractAddress',
 ];
 
 export interface ISignedQuery {
