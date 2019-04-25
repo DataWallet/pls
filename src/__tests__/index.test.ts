@@ -74,6 +74,32 @@ describe('authorize', () => {
       signature: 'signature',
     });
   });
+
+  it('throws if wrong contract addrewss is passed', async () => {
+    try {
+      await authorize({
+        avatarUrl: 'http://example.com',
+        contractAddress: 'wrong address',
+        query: 'query',
+        shortName: 'a short name',
+      });
+    } catch (e) {
+      expect(e.message).toMatch(
+        /`contractAddress` must be a valid Ethereum address/,
+      );
+    }
+    expect.assertions(1);
+  });
+
+  it('doesnt throws if valid contractAddress is passed', async () => {
+    const signedQuery = await authorize({
+      avatarUrl: 'http://example.com',
+      contractAddress: '0x01d21ded61e7aD5015555597148FAE2b99F062eE',
+      query: 'query',
+      shortName: 'a short name',
+    });
+    expect(signedQuery).toBeTruthy();
+  });
 });
 
 describe('query', () => {
