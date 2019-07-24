@@ -1,5 +1,5 @@
 # PLS
-## The most polite library you'll ever find.
+## The most polite way to access your users' data.
 
 Stands for _Permissioned Local Storage_ and is your companion to interact with Datawallet 3.0 and get access to your users' data ethically.
 
