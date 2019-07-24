@@ -1,8 +1,9 @@
 {
-  "name": "@datawallet/satellite-sdk",
+  "name": "@datawallet/pls",
   "version": "1.1.0",
   "main": "lib/index.js",
-  "repository": "https://github.com/DataWallet/satellite-sdk",
+  "types": "lib/index.d.ts",
+  "repository": "https://github.com/DataWallet/pls",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
