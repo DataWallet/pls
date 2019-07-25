@@ -56,3 +56,8 @@ const data = await pls.query(signedQuery);
 const {datawallet: {userId}} = await pls.query(signedQuery);
 // userId ~= "...";
 ```
+
+
+## 🚀 Complete walkthrough and demo
+
+If this wasn't sufficient, you can check this [document](https://docs.google.com/document/d/122Bs2WMHpW9g4ptQqhxWNHud6tZij8B_5svMAFuYkp0/edit?usp=sharing) to read a complete walkthrough as well as some examples
