@@ -8,7 +8,9 @@ export interface IAuthorizeParams {
   promoTextMore?: string;
 }
 
-export const AUTHORIZE_PARAMS_KEYS: Array<keyof IAuthorizeParams> = [
+type AuthorizeParamsKey = keyof IAuthorizeParams;
+
+export const AUTHORIZE_PARAMS_KEYS: AuthorizeParamsKey[] = [
   'query',
   'shortName',
   'avatarUrl',
